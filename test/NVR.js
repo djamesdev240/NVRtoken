@@ -24,10 +24,13 @@ describe("NVR Token", function () {
             expect(currentBalance).to.equal(BigInt(originalBalance) + BigInt(mintAmout));
 
         });
-        it("It should prevent non-owners from minting", async function () {
-            const address = await accounts[1].getAddress();
-            const mintAmout = 1000;
-            await expect(token.connect(accounts[1]).mint(address, mintAmout)).to.be.reverted
+        it("It should let non-owners mint", async function () {
+            const user = accounts[1];
+            const mintAmout = ethers.utils.parseEther("1000");
+            let originalBalance = await token.balanceOf(user.getAddress());
+            const mint = await token.mint(user.getAddress(), mintAmout);
+            let currentBalance = await token.balanceOf(user.getAddress());
+            expect(currentBalance).to.equal(BigInt(originalBalance) + BigInt(mintAmout));
         });
     });
     describe("Mint Transfer", function () {

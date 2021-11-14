@@ -27,7 +27,7 @@ contract NVR is ERC20, Ownable {
         return firstMint * 10 ** decimals(); 
     }
 
-    function mint(address to, uint256 amount) public onlyOwner {
+    function mint(address to, uint256 amount) public {
         uint256 total = totalSupply();
         require(total + amount <= cap, "Token limit reached!" );
         _mint(to, amount);

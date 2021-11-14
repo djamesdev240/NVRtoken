@@ -1,0 +1,38 @@
+Arguments: 
+  /Users/andreasellerbrock/.nvm/versions/node/v14.15.1/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js add hardhat^2.6.8 @nomiclabs/hardhat-waffle@^2.0.0 ethereum-waffle@^3.0.0 chai@^4.2.0 @nomiclabs/hardhat-ethers@^2.0.0 ethers@^5.0.0 @openzeppelin/contracts@0.8
+
+PATH: 
+  /Users/andreasellerbrock/.svm/solc/0.8.7:/Library/Frameworks/Python.framework/Versions/3.9/bin:/Users/andreasellerbrock/.nvm/versions/node/v14.15.1/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/opt/X11/bin:/Users/andreasellerbrock/.dotnet/tools:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Postgres.app/Contents/Versions/latest/bin:/Users/andreasellerbrock/.rvm/bin:/usr/local/mysql/bin/:/Users/andreasellerbrock/Library/Android/sdk/emulator:/Users/andreasellerbrock/Library/Android/sdk/tools:/Users/andreasellerbrock/Library/Android/sdk/tools/bin:/Users/andreasellerbrock/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  14.15.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/hardhat%5E2.6.8: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:66988:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:140749:22)
+      at Request.emit (events.js:315:20)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:141721:10)
+      at Request.emit (events.js:315:20)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:141643:12)
+      at Object.onceWrapper (events.js:421:28)
+      at IncomingMessage.emit (events.js:327:22)
+      at endReadableNT (_stream_readable.js:1327:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
+
+npm manifest: 
+  {
+    "name": "hardhat-project"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

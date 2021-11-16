@@ -12,8 +12,9 @@ async function main() {
     const addr3 = '0xB594750dFe1cB1f564695Ff3C609f150DD0aE6c9';
     const addr4 = '0x663d5a3C7b8902D09FA5d69d14B12A076e90C6Ea';
     const addr5 = '0x4B59660dF531Eb1aE108FBA8FB485b0858eBf837';
+    const addr6 = '0xcF5557123F10d916b687e41e8548eCf98Ff13d71';
 
-    const token = await Token.deploy(addr1, addr2, addr3, addr4, addr5);
+    const token = await Token.deploy(addr1, addr2, addr3, addr4, addr5, addr6);
 
     console.log("Token address:", token.address);
 }

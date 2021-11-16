@@ -8,9 +8,17 @@ describe("NVR Token", function () {
         const addr3 = await accounts[3].getAddress();
         const addr4 = await accounts[4].getAddress();
         const addr5 = await accounts[5].getAddress();
+        const addr6 = await accounts[6].getAddress();
 
         const NVRToken = await ethers.getContractFactory("NVR");
-        token = await NVRToken.connect(accounts[0]).deploy(addr1, addr2, addr3, addr4, addr5);
+        token = await NVRToken.connect(accounts[0]).deploy(
+            addr1,
+            addr2,
+            addr3,
+            addr4,
+            addr5,
+            addr6
+        );
         await token.deployed();
     });
     describe("Ownable", function () {
@@ -59,6 +67,24 @@ describe("NVR Token", function () {
             const addr5Balance = ethers.utils.parseEther("140000");
             expect(await token.balanceOf(addr5)).to.equal(addr5Balance);
         });
+        it("Address 6 should have a balance of 7,980,000", async function () {
+            const addr6 = accounts[6].getAddress();
+            const addr6Balance = ethers.utils.parseEther("7980000");
+            expect(await token.balanceOf(addr6)).to.equal(addr6Balance);
+        });
+        it("Owner should have a balance of 0", async function () {
+            const ownerAddress = await accounts[0].getAddress();
+            const remainder = await token.getRemainder();
+            expect(await token.balanceOf(ownerAddress)).to.equal(0);
+        });
     });
-
+    describe("Ownership", function () {
+        it("It should transfer ownership to addr1", async function () {
+            const owner = accounts[0];
+            const addr1 = await accounts[1].getAddress();
+            const tro = await token.transferOwnership(addr1)
+            let newOwner = await token.owner();
+            expect(newOwner).to.equal(addr1);
+        });
+    });
 });

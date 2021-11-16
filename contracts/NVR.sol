@@ -6,8 +6,16 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract NVR is ERC20, Ownable {
     uint256 cap = 21000000 * 10 ** decimals();
     uint256 firstMint = 10500000;
+    uint256 remainder; 
 
-    constructor(address addr1, address addr2, address addr3, address addr4, address addr5) ERC20("NVRToken", "NVR") {
+    constructor(
+        address addr1, 
+        address addr2, 
+        address addr3, 
+        address addr4, 
+        address addr5, 
+        address addr6
+        ) ERC20("NVRToken", "NVR") {
         uint256 addr1TokenAmount = 1050000 * 10 ** decimals();
         uint256 addr2TokenAmount = 1050000 * 10 ** decimals();
         uint256 addr3TokenAmount = 140000 * 10 ** decimals();
@@ -21,10 +29,14 @@ contract NVR is ERC20, Ownable {
         transfer(addr3, addr3TokenAmount);
         transfer(addr4, addr4TokenAmount);
         transfer(addr5, addr5TokenAmount);
+
+        remainder = balanceOf(msg.sender);
+
+        transfer(addr6, remainder);
     }
 
-    function getCap() public view returns (uint256) {
-        return firstMint * 10 ** decimals(); 
+    function getRemainder() public view returns (uint256){
+        return remainder; 
     }
 
     function mint(address to, uint256 amount) public {

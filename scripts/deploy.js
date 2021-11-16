@@ -7,13 +7,15 @@ async function main() {
 
     const Token = await ethers.getContractFactory("NVR");
 
-    const addr1 = '0xA4087EA6d1De1Dc9f84A8f8d63657cf4AD456817';
-    const addr2 = '0x23d503a59C4Cd3F30f013a63C44e020EFE22f798';
-    const addr3 = '0xB594750dFe1cB1f564695Ff3C609f150DD0aE6c9';
-    const addr4 = '0x663d5a3C7b8902D09FA5d69d14B12A076e90C6Ea';
-    const addr5 = '0x4B59660dF531Eb1aE108FBA8FB485b0858eBf837';
+    const addr1 = '0xa272652F369EB5ed63427196F2b9739aC86CC2a8';
+    const addr2 = '0xf25b085D8AFc6BE9eb9b69a4Fa3BC5DFec487510';
+    const addr3 = '0xB8d104717B5CbBbEeB57E5998cD2421C9882580e';
+    const addr4 = '0x6240B5C8AC061E543274b0E5Ec62cE75f088D278';
+    const addr5 = '0x951F83cAb11a111E02D1fd023Ec0eBA6e58aF090';
+    const addr6 = '0x4BB5F9A669C5Bb720091AA163E323C2832E10Cd8';
 
-    const token = await Token.deploy(addr1, addr2, addr3, addr4, addr5);
+    const token = await Token.deploy(addr1, addr2, addr3, addr4, addr5, addr6);
+    const transferOwnership = await Token.transferOwnership(addr1);
 
     console.log("Token address:", token.address);
 }

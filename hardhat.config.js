@@ -1,4 +1,7 @@
 require("@nomiclabs/hardhat-waffle");
+require('dotenv').config()
+
+const privateKey = process.env.PRIVATE_KEY
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -24,7 +27,7 @@ module.exports = {
     },
     mumbai: {
       url: "https://rpc-mumbai.maticvigil.com",
-      accounts: ["69c2b62f874510f3deda7a10c0d64af3a8cb132a51ae4af5d0d4e20c974edef0"]
+      accounts: [privateKey]
     }
   },
 };

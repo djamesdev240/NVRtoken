@@ -15,7 +15,7 @@ async function main() {
     const addr6 = '0x4BB5F9A669C5Bb720091AA163E323C2832E10Cd8';
 
     const token = await Token.deploy(addr1, addr2, addr3, addr4, addr5, addr6);
-    const transferOwnership = await Token.transferOwnership(addr1);
+    const transferOwnership = await token.transferOwnership(addr1);
 
     console.log("Token address:", token.address);
 }
